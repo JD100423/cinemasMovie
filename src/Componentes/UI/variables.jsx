@@ -1,0 +1,11 @@
+export const colorPrimario = "#2A7AE4" 
+export const colorSecundario = "#000000"
+
+export const colorCardst = "#6BD1FF" 
+export const colorCardNd = "#00C86F" 
+export const colorCardRd = "#FFBA05" 
+export const colorCardOth = "#DC6EBE" 
+export const colorCardOths = "#9CD33B" 
+export const colorCardO = "#6B5BE2" 
+export const colorCardM = "#FF8C2A" 
+export const colorCardOne = "#9CD33B" 
