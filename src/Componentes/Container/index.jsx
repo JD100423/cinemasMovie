@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Card from "../Card";
+import Card from "../Video";
 
 const StyledContainer = styled.div`
     min-height: 100px;
