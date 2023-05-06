@@ -8,7 +8,7 @@ background-color:${colorSecundario} ;
 display: flex;
 justify-content: space-between;
 padding: 0 15vh;
-width: 100;
+width: auto;
 height: 94px;
 `
 
@@ -28,6 +28,11 @@ const BtnHeader = styled.a`
     font-weight: 600;
     border: 2px solid white;
     color: whitesmoke;
+    text-decoration: none;
+    @media (max-width: 500px){
+        display: none;
+        
+    }
 `
 
 const Header = () => {

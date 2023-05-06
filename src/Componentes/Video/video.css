@@ -1,0 +1,41 @@
+.videos-card {
+    width: 260px;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.videos-card .videos{
+    border: 10px 10px 0px 0px solid #2A7AE4;
+
+}
+
+.videos-card img{
+    width: 260px;
+    position: relative;
+
+}
+
+.videos-card .info{
+    background: #ffffff;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-height: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.videos-card .info h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #212121;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0 24px;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.mostrar {
+    position: absolute;
+    right: 10px;
+}
