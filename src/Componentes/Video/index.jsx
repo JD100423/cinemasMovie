@@ -4,22 +4,22 @@ import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai"
 
 const Video = (props) => {
-    const {titulo, descripcion, foto, video} = props.datos
-    const {colorPrimario, nombre} = props
-    const [mostrarCategoria, setCategoria] = useState(false)
+    const {titulo, descripcion, foto, categoria, video} = props.datos
+    const {colorPrimario} = props
+    const [mostrarDescription, cambiarDescription] = useState(false)
 
-    const cambiarMostrar = () => {
-        setCategoria(!mostrarCategoria)
+    const cambiarMostrarV = () => {
+        cambiarDescription(!mostrarDescription)
     }
 
-    const Btn = styled.button`
+    const BtnTitulo = styled.button`
         background-color: ${colorPrimario};
         border-radius: 10px;
         font-weight: 400;
         font-family: 'Roboto', sans-serif;
         font-size: 18px;
-        padding: 24px 26px;
-        border: none;
+        padding: 20px 32px;
+        border: 5px solid ${colorPrimario};
         color: #ffffff;
         margin: 26px 0;
     `
@@ -50,18 +50,20 @@ const Video = (props) => {
     return(
         <>
         <div className="videos-card">
-            <Btn>{nombre}</Btn>
+            <div>
+            <BtnTitulo>{categoria}</BtnTitulo>
+            </div>
             <div className="videos" style={{backgroundColor: colorPrimario}}>
              <img src={foto} alt={titulo}/>
             </div>
             <div className="info">
             <Titulo>{titulo}</Titulo>
             <h5>
-                <AiOutlineArrowDown onClick={cambiarMostrar} className="mostrar">
-                { mostrarCategoria ? 'Ocultar' : 'mostrar'}
+                <AiOutlineArrowDown onClick={cambiarMostrarV} className="mostrar">
+                { mostrarDescription ? 'Ocultar' : 'mostrar'}
                 </AiOutlineArrowDown>
             </h5>
-            {mostrarCategoria && (descripcion)}
+            {mostrarDescription && (descripcion)}
             <BtnCard href={video}>Ver</BtnCard>
             </div>
         </div>

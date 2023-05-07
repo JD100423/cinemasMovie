@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/logo.png"
 import { colorSecundario } from "../UI/variables";
+import Btn from "../Btn/Btn";
+import Formularios from "../Formularios";
 
 const Nav = styled.nav`
 background-color:${colorSecundario} ;
@@ -18,29 +21,12 @@ const Logo = styled.img`
     margin-top: 25px;
 `
 
-const BtnHeader = styled.a`
-    text-align: center;
-    display: flex;
-    border-radius: 3px;
-    padding: 10px 20px;
-    margin-top: 25px;
-    font-family: 'Source Sans Pro';
-    font-weight: 600;
-    border: 2px solid white;
-    color: whitesmoke;
-    text-decoration: none;
-    @media (max-width: 500px){
-        display: none;
-        
-    }
-`
-
 const Header = () => {
     return (
      <Nav>
         <Logo src={logo} alt="Logo" />
         <div>
-            <BtnHeader href="#">Nuevo Video</BtnHeader>
+        <Btn>Agregar Nueva Pelicula</Btn>
         </div>
      </Nav>
     )

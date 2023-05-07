@@ -3,24 +3,27 @@ import "./Categorias.css"
 import React from "react"
 
 const Categorias = (props) => {
-    const {colorPrimario , nombre} = props.datos
+    const {colorPrimario , titulo} = props.datos
     const { videos }  = props
 
     return <>
     {
         <section>
+            {videos.length > 0 && 
             <div className="video">
                 {
-                    videos.map((video,index) => <Video
+                    videos.map((video, index) => <Video
                     datos={video}
                     key={index}
                     colorPrimario={colorPrimario}
-                    nombre={nombre}
+                    nombre={titulo}
                     />
                     )
                 }
+            
 
             </div>
+}|
         </section>}
     </>
 }
