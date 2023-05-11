@@ -49,14 +49,13 @@ function App({handleClick}, props) {
   }
 `;
 
-  const {agregarPelicula} = props
 
   return (
     <BrowserRouter>
       <Header/> 
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/formulario' element={<Formulario categorias={categorias} agregarPelicula={agregarPelicula}/>} />
+        <Route path='/formulario' element={<Formulario categorias={categorias} />} />
         <Route path='/post/:id' element={<Post/>} />
         <Route path='/mostrar-video' element={<MostrarVideo/>} />
       </Routes>
