@@ -1,12 +1,14 @@
-import React, {} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { colorSecundario } from "../UI/variables";
+import { Link, } from "react-router-dom";
+import Formulario from "../FormVideo";
 
 
 
 
+const Btn = ({handleClick}) => {
 
-const Btn = ({Formularios}) => {
     const Btn = styled.button`
     text-align: center;
     background-color: ${colorSecundario};
@@ -25,20 +27,16 @@ const Btn = ({Formularios}) => {
     }
 `
 
-    const Letter = styled.a`
-        text-align: center;
-        color: #ffffff;
-        font-family: 'Source Sans Pro';
-        
-    `
+
 
 
     return (
+        <>
        
-        <Btn>
-            <Letter href="../Formularios/index.jsx">Agregar Nuevo Video</Letter>
-        </Btn>
+       <Btn onClick={handleClick}>Agregar Nueva Pelicula</Btn>
+        </>
     )
 }
+
 
 export default Btn

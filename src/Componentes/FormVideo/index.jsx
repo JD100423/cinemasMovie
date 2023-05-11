@@ -1,70 +1,91 @@
 import React, {useState} from "react";
 import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
-import { Box, Button } from "@mui/material";
+import { Button} from "@mui/material";
+import styled from "styled-components";
 
 const Formulario = (props) => {
-
     const [titulo, setTitulo] = useState("")
     const [imagen, setImagen] = useState("")
     const [video, setVideo] = useState("")
-    const [categorias, setCategoria] = useState("")
+    const [categoria, setCategoria] = useState("")
     const [description, setDescription] = useState("")
     const [codigo, setCodigo] = useState("")
-
-    const {agregarNuevoVideo} = props
-
+    const {agregarPelicula} = props
+    
+    
     const resetBoton = (e) => {
         e.preventDefault()
         let datosAEnviar = {
             titulo,
             imagen,
             video,
-            categorias,
+            categoria,
             description,
             codigo
         }
-        agregarNuevoVideo(datosAEnviar)
+        agregarPelicula(datosAEnviar)
     }
+
+        const Formulario = styled.section`
+            display: flex;
+            justify-content: space-evenly;
+            margin: 80px 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        `
+        const Form = styled.form`
+        border-radius: 20px;
+        padding: 8px 100px;
+        flex: 1;
+        `
     return (
-        <Box component="form" onSubmit={resetBoton}>
+        <Formulario>
+            <Form onSubmit={resetBoton}>
         <Texto 
-        variant="Outlined"
-        label="Titulo"
+        titulo="Titulo"
+        placeholder="Ingresar titulo"
+        required
         valor={titulo}
+        type="text"
         actualizarValor={setTitulo}
         />
         <Texto 
-        variant="Outlined"
-        label="Link del video"
+        titulo="Video"
+        placeholder="Ingresar link del video"
+        required
         valor={video}
         actualizarValor={setVideo}
         />
         <Texto 
-        variant="Outlined"
-        label="Link de la imagen"
-        value={imagen}
+        titulo="Imagen"
+        placeholder="Ingresar link de la imagen"
+        required
+        valor={imagen}
         actualizarValor={setImagen}
         />
-        <ListCategories 
-        valor={categorias}
-        actualizaCat={setCategoria}
-        categorias={props.categorias}
-        />
-        
         <Texto 
-        variant="Outlined"
-        label="Escriba la descripcion"
+        titulo="Descripcion"
+        placeholder="Ingresa la descripcion"
+        required
         valor={description}
         actualizarValor={setDescription}
         />
         <Texto 
-        label="Escriba el codigo de seguridad"
+        titulo="Codigo"
+        placeholder="Ingresar codigo de acceso"
+        required
         valor={codigo}
         actualizarValor={setCodigo}
         />
+        <ListCategories 
+        valor={categoria}
+        actualizarCat={setCategoria}
+        categorias={props.categorias}
+        />
         <Button variant="contained" style={{marginTop: "5px"}}>Registrar</Button>
-        </Box>
+        </Form>
+        </Formulario>
     )
 }
 

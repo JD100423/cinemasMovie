@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import "./video.css"
 import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai"
 
-const Video = (props) => {
+const Video = ( props) => {
     const {titulo, descripcion, foto, categoria, video} = props.datos
     const {colorPrimario} = props
     const [mostrarDescription, cambiarDescription] = useState(false)
@@ -51,7 +51,7 @@ const Video = (props) => {
         <>
         <div className="videos-card">
             <div>
-            <BtnTitulo>{categoria}</BtnTitulo>
+            <BtnTitulo >{categoria}</BtnTitulo>
             </div>
             <div className="videos" style={{backgroundColor: colorPrimario}}>
              <img src={foto} alt={titulo}/>

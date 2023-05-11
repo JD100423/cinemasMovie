@@ -1,23 +1,29 @@
-import React from "react"
-import {  Box, MenuItem, TextField } from "@mui/material"
-const ListCategories = (props) => {
-    return(
-        <Box component="form"
-        sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch', margin: '0' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-        <TextField
-        id="outlined-select-currency"
-        select 
-        label="Categorias"
-        heplperText="Seleccione una categoria">
-            {props.categorias.map((categoria, index) => <MenuItem key={index.value} value={categoria}>{categoria}</MenuItem>)}
-        </TextField>
-        </Box>
-    )
-}
+import React, {useState} from "react";
+import "./list.css";
 
-export default ListCategories
+const ListCategories = (props) => {
+console.log(props)
+
+  const manejar = (e) => {
+    props.actualizarCat(e.target.value);
+  };
+
+  return (
+    <div className="list-cat">
+      <label>Categorias</label>
+      <select value={props.valor} onChange={manejar}>
+        <option value="" disabled defaultValue="" hidden>
+          Seleccionar Categoría
+        </option>
+        {props.categorias?.map((categoria, index) => (
+          <option key={index} value={categoria.titulo}>
+            {categoria.titulo}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+export default ListCategories;
+

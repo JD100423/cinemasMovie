@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/logo.png"
 import { colorSecundario } from "../UI/variables";
 import Btn from "../Btn/Btn";
-import Formularios from "../Formularios";
+
+
 
 const Nav = styled.nav`
 background-color:${colorSecundario} ;
@@ -20,13 +21,19 @@ const Logo = styled.img`
     height: 40px;
     margin-top: 25px;
 `
+    
 
 const Header = () => {
+    const navegate = useNavigate();
+
+    const handleClick = () => {
+        navegate("/formulario")
+    }
     return (
      <Nav>
         <Logo src={logo} alt="Logo" />
         <div>
-        <Btn>Agregar Nueva Pelicula</Btn>
+            <Btn handleClick={handleClick}/>
         </div>
      </Nav>
     )
