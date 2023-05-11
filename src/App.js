@@ -59,7 +59,7 @@ function App({handleClick}, props) {
         <Route path='/post/:id' element={<Post/>} />
         <Route path='/mostrar-video' element={<MostrarVideo/>} />
       </Routes>
-      <BtnCell onClick={handleClick} text="Agregar nueva Pelicula"/>
+      <BtnCell onClick={handleClick} text>Agregar nueva Pelicula </BtnCell>
     </BrowserRouter>
   );
 }
