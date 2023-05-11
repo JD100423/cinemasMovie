@@ -3,6 +3,7 @@ import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
 import { Button} from "@mui/material";
 import styled from "styled-components";
+import TextDescription from "../Textdescription";
 
 const Formulario = (props) => {
     const [titulo, setTitulo] = useState("")
@@ -33,15 +34,22 @@ const Formulario = (props) => {
             margin: 80px 50px;
             flex-wrap: wrap;
             gap: 20px;
+            @media (max-width: 768px) {
+            margin: 40px 20px;
+            }
         `
-        const Form = styled.form`
+        const Formu = styled.form`
         border-radius: 20px;
         padding: 8px 100px;
         flex: 1;
+
+        @media (max-width: 768px) {
+        padding: 8px 20px;
+         }     
         `
     return (
-        <Formulario>
-            <Form onSubmit={resetBoton}>
+        <Formulario >
+            <Formu onSubmit={resetBoton}>
         <Texto 
         titulo="Titulo"
         placeholder="Ingresar titulo"
@@ -64,7 +72,13 @@ const Formulario = (props) => {
         valor={imagen}
         actualizarValor={setImagen}
         />
-        <Texto 
+        <ListCategories 
+        valor={categoria}
+        placeholder="Selecciona una categoría"
+        setCategoria={setCategoria}
+        categorias={props.categorias}
+        />
+        <TextDescription 
         titulo="Descripcion"
         placeholder="Ingresa la descripcion"
         required
@@ -78,13 +92,8 @@ const Formulario = (props) => {
         valor={codigo}
         actualizarValor={setCodigo}
         />
-        <ListCategories 
-        valor={categoria}
-        actualizarCat={setCategoria}
-        categorias={props.categorias}
-        />
         <Button variant="contained" style={{marginTop: "5px"}}>Registrar</Button>
-        </Form>
+        </Formu>
         </Formulario>
     )
 }

@@ -1,23 +1,28 @@
-import React, {useState } from "react";
+import React from "react";
+import { TextField } from "@mui/material";
 import "./Texto.css"
 const Texto =(props) => {
     const {type = "text"} = props
+    const inputId = `texto-${Math.random().toString(36).substring(7)}`;
 
-    const manejarCambios = (e) => {
-        props.actualizarValor(e.target.value)
-    };
+        const manejarCambio = (e) => {
+            console.log("Cambio:",manejarCambio)
+            props.actualizarValor(e.target.value)
+        };
 
     return(
         <div className={`campo campo-${type}`}>
-            <label>{props.titulo}</label>
-            <input
-            placeholder={props.placeholder}
+
+            <TextField
+            style={{width: "100%"}}
+            variant="outlined"
+            id={inputId}
+            label={props.placeholder}
             required={props.required}
             value={props.valor}
-            onChange={manejarCambios}
+            onChange={manejarCambio}
             type={type}
             />
-
         </div>
     )
 }

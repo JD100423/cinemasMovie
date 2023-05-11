@@ -1,26 +1,34 @@
-import React, {useState} from "react";
+import React from "react";
 import "./list.css";
+import { TextField, MenuItem } from "@mui/material";
 
 const ListCategories = (props) => {
-console.log(props)
+  const inputId = `texto-${Math.random().toString(36).substring(7)}`;
 
-  const manejar = (e) => {
-    props.actualizarCat(e.target.value);
-  };
+  const manejarCambios = (er) => {
+    console.log(manejarCambios, er.target.value)
+    props.setCategoria(er.target.value)
+};
 
   return (
     <div className="list-cat">
-      <label>Categorias</label>
-      <select value={props.valor} onChange={manejar}>
-        <option value="" disabled defaultValue="" hidden>
+      <TextField 
+        style={{width: "100%"}}
+        id={inputId}
+        label={props.placeholder}
+        select
+        value={props.valor}
+        onChange={manejarCambios}
+        >
+        <MenuItem value="" disabled hidden>
           Seleccionar Categoría
-        </option>
+        </MenuItem>
         {props.categorias?.map((categoria, index) => (
-          <option key={index} value={categoria.titulo}>
+          <MenuItem key={index} value={categoria.titulo}>
             {categoria.titulo}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </TextField>
     </div>
   );
 };

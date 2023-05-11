@@ -120,20 +120,18 @@ const MostrarVideo = () => {
 
       return (
         <>
-          {categorias.map((categoria) => (
+            {categorias.map((categoria) => (
             <Categorias
-            datos={categoria}
-              key={categoria.id}
-              categorias={categoria}
-              valor={categoria.titulo}
-              actualizarCat={(nuevoTitulo) =>
-                ActCategoria(categoria.id, nuevoTitulo)
-              }
-              videos={videos.filter((video) => video.categoria === categoria.titulo)}
-              agregarNuevoVideo={agregarNuevoVideo}
-            />
-          ))}
-        </>
+               datos={categoria}
+               key={categoria.id}
+               valor={categoria.titulo}
+               setCategorias={(nuevoTitulo) => ActCategoria(categoria.id, nuevoTitulo)}
+                videos={videos.filter((video) => video.categoria === categoria.titulo)}
+                agregarNuevoVideo={agregarNuevoVideo}
+              />
+           ))}
+          </>
+
       );
 }
 

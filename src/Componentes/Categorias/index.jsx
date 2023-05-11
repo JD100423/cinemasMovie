@@ -3,7 +3,6 @@ import "./Categorias.css";
 import React from "react";
 
 const Categorias = (props) => {
-  console.log(props.categoria)
   const { colorPrimario, titulo } = props.datos;
   const { videos } = props;
 
