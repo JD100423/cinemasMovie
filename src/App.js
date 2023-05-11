@@ -8,7 +8,7 @@ import Post from './Componentes/pages/post';
 import MostrarVideo from './Componentes/MostrarVideo';
 import { v4 as uuid } from 'uuid';
 
-function App({handleClick}) {
+function App({handleClick}, props) {
   const [categorias, setCategorias] = useState([
     {
       id: uuid(),
