@@ -8,7 +8,7 @@ import Post from './Componentes/pages/post';
 import MostrarVideo from './Componentes/MostrarVideo';
 import { v4 as uuid } from 'uuid';
 
-function App(props) {
+function App({handleClick}) {
   const [categorias, setCategorias] = useState([
     {
       id: uuid(),
@@ -32,23 +32,24 @@ function App(props) {
     },
   ]);
 
-  const {agregarPelicula} = props
   const BtnCell = styled.button`
-    display: none;
+  display: none;
 
-    @media (max-width: 500px) {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background-color: #2A7AE4;
-      padding: 24px 32px;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 22px;
-      color: #ffffff;
-    }
-  `;
+  @media (max-width: 500px) {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #2A7AE4;
+    padding: 24px 32px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    color: #ffffff;
+  }
+`;
+
+  const {agregarPelicula} = props
 
   return (
     <BrowserRouter>
@@ -59,6 +60,7 @@ function App(props) {
         <Route path='/post/:id' element={<Post/>} />
         <Route path='/mostrar-video' element={<MostrarVideo/>} />
       </Routes>
+      <BtnCell onClick={handleClick}/>
     </BrowserRouter>
   );
 }
