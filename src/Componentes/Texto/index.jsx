@@ -6,7 +6,6 @@ const Texto =(props) => {
     const inputId = `texto-${Math.random().toString(36).substring(7)}`;
 
         const manejarCambio = (e) => {
-            console.log("Cambio:",manejarCambio)
             props.actualizarValor(e.target.value)
         };
 

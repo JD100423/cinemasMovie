@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
-import { Button} from "@mui/material";
-import styled from "styled-components";
+import { Button, Box} from "@mui/material";
 import TextDescription from "../Textdescription";
 
 const Formulario = (props) => {
@@ -12,11 +11,12 @@ const Formulario = (props) => {
     const [categoria, setCategoria] = useState("")
     const [description, setDescription] = useState("")
     const [codigo, setCodigo] = useState("")
-    const {agregarPelicula} = props
+    const {agregarVideo} = props
     
     
     const resetBoton = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
         let datosAEnviar = {
             titulo,
             imagen,
@@ -25,37 +25,25 @@ const Formulario = (props) => {
             description,
             codigo
         }
-        agregarPelicula(datosAEnviar)
-    }
+        agregarVideo(datosAEnviar)
+    };
 
-        const Formulario = styled.section`
-            display: flex;
-            justify-content: space-evenly;
-            margin: 80px 50px;
-            flex-wrap: wrap;
-            gap: 20px;
-            @media (max-width: 768px) {
-            margin: 40px 20px;
-            }
-        `
-        const Formu = styled.form`
-        border-radius: 20px;
-        padding: 8px 100px;
-        flex: 1;
-
-        @media (max-width: 768px) {
-        padding: 8px 20px;
-         }     
-        `
     return (
-        <Formulario >
-            <Formu onSubmit={resetBoton}>
+        <Box component="form"
+        autoComplete="off" 
+        sx={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            margin: "80px 50px",
+            flexWrap: "wrap"
+        }}
+        onSubmit={resetBoton}
+        >
         <Texto 
         titulo="Titulo"
         placeholder="Ingresar titulo"
         required
         valor={titulo}
-        type="text"
         actualizarValor={setTitulo}
         />
         <Texto 
@@ -75,8 +63,8 @@ const Formulario = (props) => {
         <ListCategories 
         valor={categoria}
         placeholder="Selecciona una categoría"
-        setCategoria={setCategoria}
         categorias={props.categorias}
+        setCategoria={setCategoria}
         />
         <TextDescription 
         titulo="Descripcion"
@@ -91,10 +79,12 @@ const Formulario = (props) => {
         required
         valor={codigo}
         actualizarValor={setCodigo}
+        type="password"
         />
-        <Button variant="contained" style={{marginTop: "5px"}}>Registrar</Button>
-        </Formu>
-        </Formulario>
+        <Button variant="contained" style={{marginTop: "5px"}} type="submit">Registrar</Button>
+        
+        </Box>
+
     )
 }
 

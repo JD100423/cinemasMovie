@@ -14,7 +14,7 @@ const Categorias = (props) => {
           {videos.map((video, index) => (
             <Video
               datos={video}
-              key={index}
+              key={video.id}
               colorPrimario={colorPrimario}
               nombre={titulo}
             />

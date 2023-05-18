@@ -5,7 +5,7 @@ import ListPost from "../../listPost";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = ({videos}) => {
   const BtnCell = styled.button`
     display: none;
 

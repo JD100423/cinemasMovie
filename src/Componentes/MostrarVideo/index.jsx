@@ -5,7 +5,7 @@ import Categorias from "../Categorias";
 
 const MostrarVideo = () => {
 
-    const [videos, setVideo] = useState([
+    const [videos] = useState([
         {
           id: uuid(),
           categoria: "Action",
@@ -82,11 +82,6 @@ const MostrarVideo = () => {
         }
       ]
       );
-      
-        const agregarNuevoVideo = (video) => {
-          console.log("Nuevo Video", video)
-            setVideo([...videos, video])
-        }
 
     const [categorias, setCategorias] = useState([
         {
@@ -127,7 +122,6 @@ const MostrarVideo = () => {
                valor={categoria.titulo}
                setCategorias={(nuevoTitulo) => ActCategoria(categoria.id, nuevoTitulo)}
                 videos={videos.filter((video) => video.categoria === categoria.titulo)}
-                agregarNuevoVideo={agregarNuevoVideo}
               />
            ))}
           </>
