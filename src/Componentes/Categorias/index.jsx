@@ -1,30 +1,33 @@
+import React from "react";
 import Video from "../Video";
 import "./Categorias.css";
-import React from "react";
 
 const Categorias = (props) => {
   const { colorPrimario, titulo } = props.datos;
-  const { videos } = props;
+  const { videos, agregarNuevo } = props;
 
+
+
+  const handleAgregarNuevo = (nuevoVideo) => {
+    agregarNuevo(nuevoVideo);
+  };
 
   return (
     <section>
-      {videos.length > 0 && (
         <div className="video">
           {videos.map((video, index) => (
             <Video
               datos={video}
-              key={video.id}
+              key={index}
               colorPrimario={colorPrimario}
               nombre={titulo}
+              videos={videos}
+              agregarNuevo={handleAgregarNuevo}
             />
           ))}
         </div>
-      )}
     </section>
   );
 };
 
 export default Categorias;
-
-  

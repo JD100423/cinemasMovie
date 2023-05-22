@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { Container } from "@mui/material";
 import MostrarVideo from "../../MostrarVideo";
-import ListPost from "../../listPost";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -31,9 +30,8 @@ const Home = ({videos}) => {
 
   return (
     <Container>
-      <MostrarVideo />
+      <MostrarVideo videos={videos}/>
       <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
-      <ListPost url={"post"} />
     </Container>
   );
 };

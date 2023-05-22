@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/logo.png"
 import { colorSecundario } from "../UI/variables";
@@ -25,16 +25,21 @@ const Logo = styled.img`
 
 const Header = () => {
     const navegate = useNavigate();
+    const location = useLocation(); 
 
     const handleClick = () => {
         navegate("/formulario")
-    }
+    };
+
+    const isHome = location.pathname === '/';
     return (
      <Nav>
         <Logo src={logo} alt="Logo" />
-        <div>
+        { isHome && (
+            <div>
             <Btn handleClick={handleClick}/>
         </div>
+        )}
      </Nav>
     )
  }

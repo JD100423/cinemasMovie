@@ -9,10 +9,10 @@ const Post = ({url}) =>{
     const navigate = useNavigate()
 
     useEffect(() => {
-        buscar(`/posts/${id}`, setPost).catch(() => {
+        buscar(`/${id}`, setPost).catch(() => {
             navigate("/not-found")
         })
-    }, [id])
+    }, [id, navigate])
     return(
         <Container>
             <div>

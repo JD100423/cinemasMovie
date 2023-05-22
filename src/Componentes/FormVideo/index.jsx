@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
 import { Button, Box} from "@mui/material";
@@ -13,6 +14,7 @@ const Formulario = (props) => {
     const [codigo, setCodigo] = useState("")
     const {agregarVideo} = props
     
+    const navigate = useNavigate();
     
     const resetBoton = (e) => {
         e.preventDefault();
@@ -26,11 +28,14 @@ const Formulario = (props) => {
             codigo
         }
         agregarVideo(datosAEnviar)
+        console.log(datosAEnviar);
+        navigate('/')
+
     };
 
     return (
         <Box component="form"
-        autoComplete="off" 
+        autoComplete="off"  
         sx={{
             display: "flex",
             justifyContent: "space-evenly",
@@ -82,8 +87,8 @@ const Formulario = (props) => {
         type="password"
         />
         <Button variant="contained" style={{marginTop: "5px"}} type="submit">Registrar</Button>
-        
         </Box>
+        
 
     )
 }

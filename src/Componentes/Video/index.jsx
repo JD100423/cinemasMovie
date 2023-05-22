@@ -3,14 +3,13 @@ import "./video.css"
 import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai"
 
-const Video = ( props) => {
-    const {titulo, descripcion, foto, categoria, video} = props.datos
-    const {colorPrimario} = props
-    const [mostrarDescription, cambiarDescription] = useState(false)
 
-    const cambiarMostrarV = () => {
-        cambiarDescription(!mostrarDescription)
-    }
+
+const Video = ( props) => {
+        const { datos, colorPrimario } = props;
+        const { titulo, descripcion, foto, categoria, video } = datos;
+      
+    const [mostrarDescription, cambiarDescription] = useState(false)
 
     const BtnTitulo = styled.button`
         background-color: ${colorPrimario};
@@ -47,6 +46,11 @@ const Video = ( props) => {
         color: whitesmoke;
         text-decoration: none;
     `
+    const cambiarMostrarV = () => {
+        cambiarDescription(!mostrarDescription)
+    }
+
+
     return(
         <>
         <div className="videos-card">

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import { colorSecundario } from "../UI/variables";
 
@@ -32,7 +32,7 @@ const Btn = ({handleClick}) => {
     return (
         <>
        
-       <Btn onClick={handleClick}>Agregar Nueva Pelicula</Btn>
+            <Btn onClick={handleClick}>Agregar Nueva Pelicula</Btn>
         </>
     )
 }
