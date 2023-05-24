@@ -4,16 +4,25 @@ import "./Categorias.css";
 
 const Categorias = (props) => {
   const { colorPrimario, titulo } = props.datos;
-  const { videos, agregarNuevo } = props;
+  const { videos, agregarNuevo, eliminarVideo } = props;
+const Estilotitulo = {
+  border: `3px solid ${colorPrimario}`,
+  borderRadius: "10px",
+  padding: "20px",
+  textAlign: "center",
+  boxShadow: "2px 3px 5px rgba(0, 0, 0, 0.09)"
 
-
-
+}
   const handleAgregarNuevo = (nuevoVideo) => {
     agregarNuevo(nuevoVideo);
   };
 
   return (
+    <>
+    {
+      videos.length > 0 &&
     <section>
+      <h3 style={Estilotitulo}>{titulo}</h3>
         <div className="video">
           {videos.map((video, index) => (
             <Video
@@ -23,10 +32,13 @@ const Categorias = (props) => {
               nombre={titulo}
               videos={videos}
               agregarNuevo={handleAgregarNuevo}
+              eliminarVideo={eliminarVideo}
             />
           ))}
         </div>
     </section>
+    }
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ import TextDescription from "../Textdescription";
 
 const Formulario = (props) => {
     const [titulo, setTitulo] = useState("")
-    const [imagen, setImagen] = useState("")
+    const [foto, setImagen] = useState("")
     const [video, setVideo] = useState("")
     const [categoria, setCategoria] = useState("")
     const [description, setDescription] = useState("")
@@ -21,7 +21,7 @@ const Formulario = (props) => {
 
         let datosAEnviar = {
             titulo,
-            imagen,
+            foto,
             video,
             categoria,
             description,
@@ -59,10 +59,10 @@ const Formulario = (props) => {
         actualizarValor={setVideo}
         />
         <Texto 
-        titulo="Imagen"
-        placeholder="Ingresar link de la imagen"
+        titulo="foto"
+        placeholder="Ingresar link de la foto"
         required
-        valor={imagen}
+        valor={foto}
         actualizarValor={setImagen}
         />
         <ListCategories 

@@ -6,7 +6,8 @@ import Home from './Componentes/pages/Home';
 import Post from './Componentes/pages/post';
 import { v4 as uuid } from 'uuid';
 
-function App() {
+function App( {cambiarMostrar} ) {
+
 
   const getVideosFromLocalStorage = () => {
     const storedVideos = localStorage.getItem('videos');
@@ -16,7 +17,17 @@ function App() {
     return [];
   };
 
-  const [videos, setVideo] = useState(getVideosFromLocalStorage());
+  const [videos, setVideo] = useState(getVideosFromLocalStorage(
+    {
+      id: uuid(),
+      titulo: "",
+      video: "",
+      foto: "",
+      categoria: "",
+      description: "",
+      codigo: ""
+    }
+  ));
 
   const [categorias] = useState([
     {
@@ -47,11 +58,17 @@ function App() {
     localStorage.setItem('videos', JSON.stringify(updatedVideos));
   };
 
+  const eliminarVideo = (id) => {
+    console.log("Eliminar: ", id);
+    const nuevosVideos = videos.filter((video) => video.id !==id)
+    setVideo(nuevosVideos);
+  }
+
   return (
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path='/' element={<Home videos={videos}/>} />
+        <Route path='/' element={<Home videos={videos} eliminarVideo={eliminarVideo} cambiarMostrar={cambiarMostrar}/>} />
         <Route path='/formulario' element={<Formulario categorias={categorias}  agregarVideo={agregarVideo}/>} />
         <Route path='/post/:id' element={<Post />} />
       </Routes>

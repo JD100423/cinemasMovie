@@ -1,36 +1,13 @@
 import React, { useState} from "react";
 import "./video.css"
 import styled from "styled-components";
-import { AiOutlineArrowDown } from "react-icons/ai"
-
-
+import { AiOutlineArrowDown, AiOutlineDelete } from "react-icons/ai"
+    
 
 const Video = ( props) => {
-        const { datos, colorPrimario } = props;
-        const { titulo, descripcion, foto, categoria, video } = datos;
-      
-    const [mostrarDescription, cambiarDescription] = useState(false)
-
-    const BtnTitulo = styled.button`
-        background-color: ${colorPrimario};
-        border-radius: 10px;
-        font-weight: 400;
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
-        padding: 20px 32px;
-        border: 5px solid ${colorPrimario};
-        color: #ffffff;
-        margin: 26px 0;
-    `
-
-    const Titulo = styled.h4 `
-        color: ${colorPrimario};
-        font-size: 20px;
-        line-height: 22px;
-        margin-bottom: 12px;
-        margin-left: 1.5rem ;
-    `
-
+        const { datos, colorPrimario, eliminarVideo } = props;
+        const { titulo, descripcion, foto, video, id} =datos;
+        console.log("Datos: ", datos);
     const BtnCard = styled.a `
         text-align: center;
         margin: 40px 3px 20px;
@@ -45,19 +22,25 @@ const Video = ( props) => {
         width: 200px;
         color: whitesmoke;
         text-decoration: none;
-    `
-    const cambiarMostrarV = () => {
+        `
+        const Titulo = styled.h4 `
+            color: ${colorPrimario};
+            font-size: 20px;
+            line-height: 22px;
+            margin-bottom: 12px;
+            margin-left: 1.5rem ;
+        `
+      
+    const [mostrarDescription, cambiarDescription] = useState(false)
+        const cambiarMostrarV = () => {
         cambiarDescription(!mostrarDescription)
-    }
-
+        }
 
     return(
         <>
         <div className="videos-card">
-            <div>
-            <BtnTitulo >{categoria}</BtnTitulo>
-            </div>
             <div className="videos" style={{backgroundColor: colorPrimario}}>
+                <AiOutlineDelete onClick={() => eliminarVideo(id)} className="eliminar"/>
              <img src={foto} alt={titulo}/>
             </div>
             <div className="info">

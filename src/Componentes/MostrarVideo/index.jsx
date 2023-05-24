@@ -3,8 +3,8 @@ import { v4 as uuid } from 'uuid';
 import Categorias from "../Categorias";
 
 const MostrarVideo = (props) => {
-  const {videos, setVideos} = props
-  console.log("mostrar: ", props);
+  const {videos, setVideo, eliminarVideo, cambiarMostrar} = props
+
 
   const [categorias, setCategorias] = useState([
     {
@@ -37,25 +37,20 @@ const MostrarVideo = (props) => {
     );
   };
 
-  const agregarNuevo = (nuevoVideo) => {
-    const videoConId = { ...nuevoVideo, id: uuid() };
-    setVideos((prevVideos) => [...prevVideos, videoConId]);
-    console.log(agregarNuevo);
+  const agregarNuevo = (videod) => {
+    setVideo(...videos, videod)
   };
-
-  console.log("Lista de videos en Mostrar:", videos);
-
-
   return (
     <>
       {categorias.map((categoria) => (  
         <Categorias
           datos={categoria}
-          key={categoria.id}
-          valor={categoria.titulo}
-          setCategorias={(nuevoTitulo) => ActCategoria(categoria.id, nuevoTitulo)}
-          videos={videos.filter((video) => video.categoria.toLowerCase() === categoria.titulo.toLowerCase())}
+          key={categoria.titulo}
+          videos={videos.filter(video => video.categoria === categoria.titulo)}
           agregarNuevo={agregarNuevo}
+          eliminarVideo={eliminarVideo}
+          cambiarMostrar={cambiarMostrar}
+
         />
       ))}
     </>

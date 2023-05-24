@@ -4,7 +4,7 @@ import MostrarVideo from "../../MostrarVideo";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({videos}) => {
+const Home = ({videos, eliminarVideo, cambiarMostrar}) => {
   const BtnCell = styled.button`
     display: none;
 
@@ -30,7 +30,7 @@ const Home = ({videos}) => {
 
   return (
     <Container>
-      <MostrarVideo videos={videos}/>
+      <MostrarVideo videos={videos} eliminarVideo={eliminarVideo} cambiarMostrar={cambiarMostrar}/>
       <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </Container>
   );
