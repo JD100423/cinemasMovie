@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Video from "../Video";
 import "./Categorias.css";
 
 const Categorias = (props) => {
   const { colorPrimario, titulo } = props.datos;
-  const { videos, agregarNuevo, eliminarVideo } = props;
+  const { videos, agregarNuevo, eliminarVideo, cambiarMostrar } = props;
 const Estilotitulo = {
   border: `3px solid ${colorPrimario}`,
   borderRadius: "10px",
@@ -16,6 +16,7 @@ const Estilotitulo = {
   const handleAgregarNuevo = (nuevoVideo) => {
     agregarNuevo(nuevoVideo);
   };
+  
 
   return (
     <>
@@ -33,6 +34,7 @@ const Estilotitulo = {
               videos={videos}
               agregarNuevo={handleAgregarNuevo}
               eliminarVideo={eliminarVideo}
+              cambiarMostrar={cambiarMostrar}
             />
           ))}
         </div>

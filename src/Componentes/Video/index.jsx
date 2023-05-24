@@ -1,13 +1,12 @@
-import React, { useState} from "react";
+import React from "react";
 import "./video.css"
 import styled from "styled-components";
 import { AiOutlineArrowDown, AiOutlineDelete } from "react-icons/ai"
     
 
 const Video = ( props) => {
-        const { datos, colorPrimario, eliminarVideo } = props;
+        const { datos, colorPrimario, eliminarVideo, cambiarMostrar} = props;
         const { titulo, descripcion, foto, video, id} =datos;
-        console.log("Datos: ", datos);
     const BtnCard = styled.a `
         text-align: center;
         margin: 40px 3px 20px;
@@ -30,11 +29,6 @@ const Video = ( props) => {
             margin-bottom: 12px;
             margin-left: 1.5rem ;
         `
-      
-    const [mostrarDescription, cambiarDescription] = useState(false)
-        const cambiarMostrarV = () => {
-        cambiarDescription(!mostrarDescription)
-        }
 
     return(
         <>
@@ -46,11 +40,11 @@ const Video = ( props) => {
             <div className="info">
             <Titulo>{titulo}</Titulo>
             <h5>
-                <AiOutlineArrowDown onClick={cambiarMostrarV} className="mostrar">
-                { mostrarDescription ? 'Ocultar' : 'mostrar'}
+                <AiOutlineArrowDown onClick={cambiarMostrar} className="mostrar">
+                { datos.mostrarDescription ? 'Ocultar' : 'mostrar'}
                 </AiOutlineArrowDown>
             </h5>
-            {mostrarDescription && (descripcion)}
+            {datos.mostrarDescription && (descripcion)}
             <BtnCard href={video}>Ver</BtnCard>
             </div>
         </div>
