@@ -21,8 +21,6 @@ const Logo = styled.img`
     height: 40px;
     margin-top: 25px;
 `
-    
-
 const Header = () => {
     const navegate = useNavigate();
     const location = useLocation(); 

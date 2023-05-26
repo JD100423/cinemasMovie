@@ -24,6 +24,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.title {
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 12px;
+}
+
 
 .videos-card .info h5 {
     font-family: 'Source Sans Pro', sans-serif;
@@ -38,6 +44,20 @@
 .mostrar {
     position: absolute;
     right: 10px;
+}
+
+.BtnVer {
+    display: block;
+    margin: 40px 3px 20px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    border-radius: 13px;
+    text-decoration: none;
+    border: none;
+    padding: 22px 24px;
+    color: #ffffff;
+    width: 200px;
 }
 
 .eliminar {

@@ -6,8 +6,15 @@ import Home from './Componentes/pages/Home';
 import Post from './Componentes/pages/post';
 import { v4 as uuid } from 'uuid';
 
-function App() {
+function App(props) {
 
+  const [mostrarDescription, setMostrarDescription] = useState({}) /*=> {
+    const storedDescription = localStorage.getItem('mostrarDescription');
+    if (storedDescription) {
+      return JSON.parse(storedDescription);
+    }
+    return {};
+  });*/
 
   const getVideosFromLocalStorage = () => {
     const storedVideos = localStorage.getItem('videos');
@@ -53,11 +60,31 @@ function App() {
   ]);
 
   const agregarVideo = (video) => {
-    const videosconID = {...video, id: uuid()}
+    const videosconID = {...video, id: uuid(), description: video.description, descripcion: video.descripcion}
     const updatedVideos =   [...videos, videosconID];
+    const updatedMostrarDescripcion = { ...mostrarDescription, [videosconID.id]: false };
+
+    setVideo(updatedVideos);
+    setMostrarDescription(updatedMostrarDescripcion);
+  
+    localStorage.setItem("videos", JSON.stringify(updatedVideos));
+    localStorage.setItem("mostrarDescription", JSON.stringify(updatedMostrarDescripcion));
     setVideo(updatedVideos);
     localStorage.setItem('videos', JSON.stringify(updatedVideos));
   };
+
+  /*const agregarVideo = (video) => {
+    const videoConID = { ...video, id: uuid() };
+    const updatedVideos = [...videos, videoConID];
+    const updatedMostrarDescription = { ...mostrarDescription, [videoConID.id]: false };
+  
+    setVideo(updatedVideos);
+    setMostrarDescription(updatedMostrarDescription);
+  
+    localStorage.setItem("videos", JSON.stringify(updatedVideos));
+    localStorage.setItem("mostrarDescription", JSON.stringify(updatedMostrarDescription));
+  };*/
+  
 
   const eliminarVideo = (id) => {
     console.log("Eliminar: ", id);
@@ -65,14 +92,28 @@ function App() {
     setVideo(nuevosVideos);
   };
 
-  
+  const cambiarMostrar = (videoId) => {
+    setMostrarDescription((prevState) => {
+      const newState = {
+        ...prevState,
+        [videoId]: !prevState[videoId]
+      };
+      localStorage.setItem("mostrarDescription", JSON.stringify(newState));
+      return newState;
+    });
+  };
 
 
   return (
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path='/' element={<Home videos={videos} eliminarVideo={eliminarVideo}/>} />
+        <Route path='/' element={<Home 
+        videos={videos} 
+        eliminarVideo={eliminarVideo} 
+        cambiarMostrar={cambiarMostrar}  
+        mostrarDescription={mostrarDescription}
+        />} />
         <Route path='/formulario' element={<Formulario categorias={categorias}  agregarVideo={agregarVideo}/>} />
         <Route path='/post/:id' element={<Post />} />
       </Routes>

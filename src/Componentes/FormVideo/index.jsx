@@ -81,7 +81,6 @@ const Formulario = (props) => {
         <Texto 
         titulo="Codigo"
         placeholder="Ingresar codigo de acceso"
-        required
         valor={codigo}
         actualizarValor={setCodigo}
         type="password"

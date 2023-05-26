@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import Categorias from "../Categorias";
 
 const MostrarVideo = (props) => {
-  const {videos, setVideo, eliminarVideo, cambiarMostrar} = props
+  const {videos, setVideo, eliminarVideo, cambiarMostrar, mostrarDescription} = props
 
 
   const [categorias, setCategorias] = useState([
@@ -50,6 +50,7 @@ const MostrarVideo = (props) => {
           agregarNuevo={agregarNuevo}
           eliminarVideo={eliminarVideo}
           cambiarMostrar={cambiarMostrar}
+          mostrarDescription={mostrarDescription}
 
         />
       ))}

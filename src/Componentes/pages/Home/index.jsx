@@ -3,8 +3,8 @@ import { Container } from "@mui/material";
 import MostrarVideo from "../../MostrarVideo";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { colorSecundario } from "../../UI/variables";
 
-const Home = ({videos, eliminarVideo, cambiarMostrar}) => {
   const BtnCell = styled.button`
     display: none;
 
@@ -12,7 +12,7 @@ const Home = ({videos, eliminarVideo, cambiarMostrar}) => {
       display: block;
       width: 100%;
       text-align: center;
-      background-color: #2A7AE4;
+      background-color: ${colorSecundario};
       padding: 24px 32px;
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: 600;
@@ -21,6 +21,8 @@ const Home = ({videos, eliminarVideo, cambiarMostrar}) => {
       color: #ffffff;
     }
   `;
+  
+const Home = ({videos, eliminarVideo, cambiarMostrar, mostrarDescription}) => {
 
   const navigate = useNavigate();
 
@@ -28,9 +30,15 @@ const Home = ({videos, eliminarVideo, cambiarMostrar}) => {
     navigate("/formulario");
   }, [navigate]);
 
+
   return (
     <Container>
-      <MostrarVideo videos={videos} eliminarVideo={eliminarVideo} cambiarMostrar={cambiarMostrar}/>
+      <MostrarVideo 
+      videos={videos} 
+      eliminarVideo={eliminarVideo} 
+      cambiarMostrar={cambiarMostrar} 
+      mostrarDescription={mostrarDescription}
+      />
       <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </Container>
   );
