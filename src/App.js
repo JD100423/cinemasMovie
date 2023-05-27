@@ -60,7 +60,7 @@ function App(props) {
   ]);
 
   const agregarVideo = (video) => {
-    const videosconID = {...video, id: uuid(), description: video.description, descripcion: video.descripcion}
+    const videosconID = {...video, id: uuid(), description: video.description}
     const updatedVideos =   [...videos, videosconID];
     const updatedMostrarDescripcion = { ...mostrarDescription, [videosconID.id]: false };
 
@@ -72,20 +72,7 @@ function App(props) {
     setVideo(updatedVideos);
     localStorage.setItem('videos', JSON.stringify(updatedVideos));
   };
-
-  /*const agregarVideo = (video) => {
-    const videoConID = { ...video, id: uuid() };
-    const updatedVideos = [...videos, videoConID];
-    const updatedMostrarDescription = { ...mostrarDescription, [videoConID.id]: false };
   
-    setVideo(updatedVideos);
-    setMostrarDescription(updatedMostrarDescription);
-  
-    localStorage.setItem("videos", JSON.stringify(updatedVideos));
-    localStorage.setItem("mostrarDescription", JSON.stringify(updatedMostrarDescription));
-  };*/
-  
-
   const eliminarVideo = (id) => {
     console.log("Eliminar: ", id);
     const nuevosVideos = videos.filter((video) => video.id !==id)
@@ -103,7 +90,6 @@ function App(props) {
     });
   };
 
-
   return (
     <BrowserRouter>
       <Header/>
@@ -114,7 +100,11 @@ function App(props) {
         cambiarMostrar={cambiarMostrar}  
         mostrarDescription={mostrarDescription}
         />} />
-        <Route path='/formulario' element={<Formulario categorias={categorias}  agregarVideo={agregarVideo}/>} />
+        <Route path='/formulario' element={<Formulario 
+        categorias={categorias}  
+        agregarVideo={agregarVideo}
+        />} 
+        />
         <Route path='/post/:id' element={<Post />} />
       </Routes>
     </BrowserRouter>

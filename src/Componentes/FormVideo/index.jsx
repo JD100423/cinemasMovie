@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
-import { Button, Box} from "@mui/material";
+import { Box} from "@mui/material";
 import TextDescription from "../Textdescription";
+import Btn from "../BtnForm";
+import BtnReset from "../BtnReset";
 
 const Formulario = (props) => {
     const [titulo, setTitulo] = useState("")
@@ -15,6 +17,15 @@ const Formulario = (props) => {
     const {agregarVideo} = props
     
     const navigate = useNavigate();
+
+    const resetForm = () => {
+        setTitulo("")
+        setVideo("")
+        setImagen("")
+        setCategoria("")
+        setDescription("")
+        setCodigo("")
+    }
     
     const resetBoton = (e) => {
         e.preventDefault();
@@ -85,7 +96,10 @@ const Formulario = (props) => {
         actualizarValor={setCodigo}
         type="password"
         />
-        <Button variant="contained" style={{marginTop: "5px"}} type="submit">Registrar</Button>
+        {/*<Button variant="contained" style={{marginTop: "5px"}} type="submit">Registrar</Button>*/}
+        <Btn texto="Guardar"/>
+        <BtnReset text="Limpiar" resetForm={resetForm}/>
+        <Btn texto="Nueva categoria" />
         </Box>
         
 

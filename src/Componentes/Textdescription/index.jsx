@@ -10,7 +10,9 @@ const TextDescription = (props) => {
     };
     return(
         <TextField
-        style={{width: "100%"}}
+        style={{width: "100%",
+        fontFamily: "'Source Sans Pro, sans serif"
+        }}
         id={inputId}
         multiline
         label={props.placeholder}

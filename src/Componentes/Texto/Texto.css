@@ -4,7 +4,7 @@
 }
 
 .campo label {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .campo input {
@@ -12,7 +12,6 @@
     border: none;
     padding: 30px 20px;
     outline-color: #2A7AE4;
-    font-size: 12px;
     line-height: 14px;
     box-sizing: border-box;
 }
