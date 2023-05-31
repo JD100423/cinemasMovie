@@ -22,17 +22,21 @@ const Logo = styled.img`
     margin-top: 25px;
 `
 const Header = () => {
-    const navegate = useNavigate();
+    const navigate = useNavigate();
     const location = useLocation(); 
 
     const handleClick = () => {
-        navegate("/formulario")
+        navigate("/formulario")
     };
+
+    const ClickenLogo = () => {
+        navigate('/')
+    }
 
     const isHome = location.pathname === '/';
     return (
      <Nav>
-        <Logo src={logo} alt="Logo" />
+        <Logo a src={logo} alt="Logo" onClick={ClickenLogo}/>
         { isHome && (
             <div>
             <Btn handleClick={handleClick}/>

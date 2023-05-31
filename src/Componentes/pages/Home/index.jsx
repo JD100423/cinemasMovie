@@ -22,7 +22,13 @@ import { colorSecundario } from "../../UI/variables";
     }
   `;
   
-const Home = ({videos, eliminarVideo, cambiarMostrar, mostrarDescription}) => {
+const Home = (props) => {
+
+  const {videos, eliminarVideo, cambiarMostrar, mostrarDescription, categorias} = props
+
+  console.log("Videos en Home: ", videos)
+  console.log("Categorias en Home: ", categorias)
+  
 
   const navigate = useNavigate();
 
@@ -35,6 +41,7 @@ const Home = ({videos, eliminarVideo, cambiarMostrar, mostrarDescription}) => {
     <Container>
       <MostrarVideo 
       videos={videos} 
+      categorias={categorias}
       eliminarVideo={eliminarVideo} 
       cambiarMostrar={cambiarMostrar} 
       mostrarDescription={mostrarDescription}

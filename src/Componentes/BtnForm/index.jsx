@@ -5,7 +5,7 @@ import { colorPrimario } from "../UI/variables";
 const Btn = (props) => {
     return(
         <>
-        <Button type="submit" style={{
+        <Button type={props.type} onClick={props.onClick} style={{
             backgroundColor: `${colorPrimario}`,
             fontFamily: "'Source Sans Pro', 'sans serif'",
             color: "#fff",

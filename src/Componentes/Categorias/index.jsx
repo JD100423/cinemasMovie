@@ -2,9 +2,11 @@
   import Video from "../Video";
   import "./Categorias.css";
 
-  const Categorias = (props) => {
-    const { colorPrimario, titulo } = props.datos;
-    const { videos, agregarNuevo, eliminarVideo, cambiarMostrar, mostrarDescription} = props;
+  const Categorias = ( props ) => {
+    const { colorPrimario, nombre } = props.datos;
+    const { videos, agregarNuevo, eliminarVideo, cambiarMostrar, mostrarDescription } = props;
+
+    console.log("videos en Categorias: ", videos);
   const Estilotitulo = {
     border: `3px solid ${colorPrimario}`,
     borderRadius: "10px",
@@ -20,17 +22,16 @@
     return (
       <>
       {
-        videos.length > 0 &&
       <section>
-        <h3 style={Estilotitulo}>{titulo}</h3>
+        <h3 style={Estilotitulo}>{nombre}</h3>
           <div className="video">
             {videos.map((video, index) => (
               <Video
                 datos={video}
                 key={index}
                 colorPrimario={colorPrimario}
-                nombre={titulo}
                 videos={videos}
+                nombre={nombre}
                 agregarNuevo={handleAgregarNuevo}
                 eliminarVideo={eliminarVideo}
                 cambiarMostrar={cambiarMostrar}

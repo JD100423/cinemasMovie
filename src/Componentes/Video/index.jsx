@@ -31,4 +31,4 @@ const Video = ( props) => {
     )
 }
 
-export default Video
+export default Video;

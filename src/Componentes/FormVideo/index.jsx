@@ -4,6 +4,7 @@ import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
 import { Box} from "@mui/material";
 import TextDescription from "../Textdescription";
+import Titulo from "../Texto/Titulo";
 import Btn from "../BtnForm";
 import BtnReset from "../BtnReset";
 
@@ -38,13 +39,20 @@ const Formulario = (props) => {
             description,
             codigo
         }
-        agregarVideo(datosAEnviar)
         console.log(datosAEnviar);
-        navigate('/')
+        agregarVideo(datosAEnviar)
+        resetForm();
+        navigate('/');
 
     };
 
+    const NewCat = () => {
+        navigate('/formularioCat')
+    }
+
     return (
+        <>
+        <Titulo titulo="Nuevo Video"/>
         <Box component="form"
         autoComplete="off"  
         sx={{
@@ -96,11 +104,11 @@ const Formulario = (props) => {
         actualizarValor={setCodigo}
         type="password"
         />
-        {/*<Button variant="contained" style={{marginTop: "5px"}} type="submit">Registrar</Button>*/}
-        <Btn texto="Guardar"/>
-        <BtnReset text="Limpiar" resetForm={resetForm}/>
-        <Btn texto="Nueva categoria" />
+        <Btn texto="Guardar" type="submit"/>
+        <BtnReset text="Limpiar" onClick={resetForm}/>
+        <Btn texto="Nueva categoria"  onClick={NewCat}/>
         </Box>
+        </>
         
 
     )

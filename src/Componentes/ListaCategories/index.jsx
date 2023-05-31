@@ -25,8 +25,8 @@ import { TextField, MenuItem } from "@mui/material";
             Seleccionar Categoría
           </MenuItem>
           {props.categorias?.map((categoria, index) => (
-            <MenuItem key={index} value={categoria.titulo}>
-              {categoria.titulo}
+            <MenuItem key={index} value={categoria.nombre}>
+              {categoria.nombre}
             </MenuItem>
           ))}
         </TextField>
