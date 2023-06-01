@@ -4,6 +4,7 @@ import MostrarVideo from "../../MostrarVideo";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { colorSecundario } from "../../UI/variables";
+import Footer from "../../Footer";
 
   const BtnCell = styled.button`
     display: none;
@@ -21,6 +22,14 @@ import { colorSecundario } from "../../UI/variables";
       color: #ffffff;
     }
   `;
+  const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+const ContentContainer = styled.div`
+  flex: 1;
+`;
   
 const Home = (props) => {
 
@@ -38,6 +47,8 @@ const Home = (props) => {
 
 
   return (
+    <HomeContainer>
+    <ContentContainer>
     <Container>
       <MostrarVideo 
       videos={videos} 
@@ -48,6 +59,9 @@ const Home = (props) => {
       />
       <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </Container>
+    </ContentContainer>
+    <Footer />
+    </HomeContainer>
   );
 };
 
