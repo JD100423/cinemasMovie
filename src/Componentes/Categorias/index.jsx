@@ -6,7 +6,6 @@
     const { colorPrimario, nombre } = props.datos;
     const { videos, agregarNuevo, eliminarVideo, cambiarMostrar, mostrarDescription } = props;
 
-    console.log("videos en Categorias: ", videos);
   const Estilotitulo = {
     border: `3px solid ${colorPrimario}`,
     borderRadius: "10px",
@@ -21,7 +20,7 @@
 
     return (
       <>
-      {
+      {videos.length > 0 &&
       <section>
         <h3 style={Estilotitulo}>{nombre}</h3>
           <div className="video">

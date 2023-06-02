@@ -7,7 +7,6 @@ const Video = ( props) => {
         const { datos, colorPrimario, eliminarVideo, cambiarMostrar, mostrarDescription } = props;
         const { titulo, foto, video, id, description } =datos;
         
-        console.log("Cambiar estado: ", mostrarDescription);
 
     return(
         <>

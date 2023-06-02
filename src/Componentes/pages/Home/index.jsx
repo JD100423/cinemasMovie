@@ -34,8 +34,6 @@ const Home = (props) => {
 
   const {videos, eliminarVideo, cambiarMostrar, mostrarDescription, categorias} = props
 
-  console.log("Videos en Home: ", videos)
-  console.log("Categorias en Home: ", categorias)
   
 
   const navigate = useNavigate();
@@ -56,9 +54,9 @@ const Home = (props) => {
       cambiarMostrar={cambiarMostrar} 
       mostrarDescription={mostrarDescription}
       />
-      <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </Container>
     </ContentContainer>
+      <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </HomeContainer>
   );
 };

@@ -4,8 +4,6 @@ import Categorias from "../Categorias";
 const MostrarVideo = (props) => {
   const {videos, eliminarVideo, cambiarMostrar, mostrarDescription, crearCategoria, categorias, agregarNuevo} = props
 
-  console.log("videos en mostrar: ", videos)
-  console.log("categorias en mostrar: ", categorias)
   return (
     <>
       {categorias.map((categoria, index) => (  

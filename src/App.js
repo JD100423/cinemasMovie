@@ -77,8 +77,6 @@ function App() {
     setCategorias(updatedCategorias);
   };
 
-  console.log("videos: ", videos);
-  console.log("categorias: ", categorias);
 
   return (
     <BrowserRouter>
