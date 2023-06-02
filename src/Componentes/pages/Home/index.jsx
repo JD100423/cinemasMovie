@@ -4,7 +4,6 @@ import MostrarVideo from "../../MostrarVideo";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { colorSecundario } from "../../UI/variables";
-import Footer from "../../Footer";
 
   const BtnCell = styled.button`
     display: none;
@@ -60,7 +59,6 @@ const Home = (props) => {
       <BtnCell onClick={handleClick}>Agregar nueva Pelicula</BtnCell>
     </Container>
     </ContentContainer>
-    <Footer />
     </HomeContainer>
   );
 };

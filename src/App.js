@@ -6,6 +6,7 @@ import Home from './Componentes/pages/Home';
 import Post from './Componentes/pages/post';
 import FormCat from './Componentes/FormCat';
 import { v4 as uuid } from 'uuid';
+import Footer from './Componentes/Footer';
 
 function App() {
   const [mostrarDescription, setMostrarDescription] = useState({});
@@ -101,6 +102,7 @@ function App() {
         />} />
         <Route path="/post/:id" element={<Post />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
