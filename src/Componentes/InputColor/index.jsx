@@ -19,6 +19,7 @@ const InputColor = (props) => {
             margin: "24px 0"
         }}
         required={props.required}
+        placeholder={props.placeholder}
         value={props.valor}
         onChange={manejarCambio}
         type={props.type}

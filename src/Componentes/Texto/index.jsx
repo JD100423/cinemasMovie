@@ -13,6 +13,7 @@ const Texto =(props) => {
 
             <TextField
             style={{width: "100%"}}
+            error={props.error}
             label={props.placeholder}
             required={props.required}
             value={props.valor}

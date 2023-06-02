@@ -17,6 +17,7 @@ const TextDescription = (props) => {
         multiline
         label={props.placeholder}
         rows={4}
+        required={props.required}
         value={props.valor}
         onChange={manejarCambios}
         />

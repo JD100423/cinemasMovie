@@ -1,17 +1,24 @@
 import React from "react";
-import { Button } from "@mui/material";
 import { colorPrimario } from "../UI/variables";
+import styled from "styled-components";
 
+const Boton = styled.button`
+    background-color: ${colorPrimario};
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    border-radius: 3px;
+    border: none;
+    @media (max-width: 500px){
+        margin-top: 15px;
+    }
+`
 const Btn = (props) => {
     return(
         <>
-        <Button type={props.type} onClick={props.onClick} style={{
-            backgroundColor: `${colorPrimario}`,
-            fontFamily: "'Source Sans Pro', 'sans serif'",
-            color: "#fff",
-            padding: "15px",
-            display: "flex",
-        }}>{props.texto}</Button>
+        <Boton type={props.type} onClick={props.onClick}>{props.texto}</Boton>
         </>
 
     )

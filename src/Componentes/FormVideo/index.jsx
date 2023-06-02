@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import ListCategories from "../ListaCategories";
 import Texto from "../Texto";
 import { Box} from "@mui/material";
+import BtnReset from "../BtnReset";
 import TextDescription from "../Textdescription";
 import Titulo from "../Texto/Titulo";
 import Btn from "../BtnForm";
-import BtnReset from "../BtnReset";
 
 const Formulario = (props) => {
     const [titulo, setTitulo] = useState("")
@@ -88,6 +88,7 @@ const Formulario = (props) => {
         valor={categoria}
         placeholder="Selecciona una categoría"
         categorias={props.categorias}
+        required
         setCategoria={setCategoria}
         />
         <TextDescription 
@@ -102,6 +103,7 @@ const Formulario = (props) => {
         placeholder="Ingresar codigo de acceso"
         valor={codigo}
         actualizarValor={setCodigo}
+        required
         type="password"
         />
         <Btn texto="Guardar" type="submit"/>

@@ -61,6 +61,8 @@ const FormCat = (props) => {
             <InputColor 
             titulo="Color"
             valor={color}
+            required
+            placeholder="Ingrese el color en Hex."
             actualizarValor={setColor}
             type="color"
             />
@@ -70,9 +72,10 @@ const FormCat = (props) => {
             required
             valor={codigo}
             actualizarValor={setCodigo}
+            type="password"
             />
             <Btn texto="Guardar" type="submit"/>
-            <BtnReset text="Limpiar" resetForm={resetForm}/>
+            <BtnReset text="Limpiar" onClick={resetForm}/>
         </Box>
 
         </>

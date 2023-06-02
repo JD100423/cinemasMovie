@@ -1,16 +1,30 @@
 import React from "react";
-import { Button } from "@mui/material";
+import styled from "styled-components";
+import { ColorBtnReset } from "../UI/variables";
+
+const Bton = styled.button`
+    background-color: ${ColorBtnReset};
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color: #000;
+    padding: 15px;
+    display: flex;
+    font-weight: 600;
+    border-radius: 3px;
+    border: none;
+    
+        @media (max-width: 500px){
+        margin-top: 15px;
+        margin-right: 10px;
+    
+    }
+`
 
 const BtnReset = (props) => {
-    const {resetForm}= props
     return (
-        <Button type="reset" variant="contained" style={{
-            color: "#000",
-            backgroundColor: "#BFC1D0",
-            padding: "0px, 10px",
-            border: "none",
-            borderRadius: "5.62px"
-        }} onClick={resetForm}>{props.text}</Button>
+        <>
+        <Bton type="reset" onClick={props.onClick}>{props.text}</Bton>
+        </>
     )
 }
 

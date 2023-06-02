@@ -7,7 +7,6 @@ import { TextField, MenuItem } from "@mui/material";
 
     const manejarCambios = (e) => {
       props.setCategoria(e.target.value)
-      console.log(e.target.value)
   };
 
     return (
@@ -17,6 +16,7 @@ import { TextField, MenuItem } from "@mui/material";
         display:"flex"}}
           id={inputId}
           label={props.placeholder}
+          required={props.required}
           select
           value={props.valor}
           onChange={manejarCambios}
