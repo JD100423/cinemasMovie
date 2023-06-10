@@ -10,7 +10,7 @@ import { colorSecundario } from "../../UI/variables";
 
     @media (max-width: 500px) {
       display: block;
-      width: 100%;
+      width: 90%;
       text-align: center;
       background-color: ${colorSecundario};
       padding: 24px 32px;
@@ -19,11 +19,14 @@ import { colorSecundario } from "../../UI/variables";
       font-size: 20px;
       line-height: 22px;
       color: #ffffff;
+      border: none;
+      border-radius: 10px;
     }
   `;
   const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 100vh;
 `;
 const ContentContainer = styled.div`

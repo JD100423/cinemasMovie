@@ -19,6 +19,9 @@ const TextDescription = (props) => {
         rows={4}
         required={props.required}
         value={props.valor}
+        error={props.error}
+        helperText={props.helperText}
+        onBlur={props.onBlur}
         onChange={manejarCambios}
         />
     )

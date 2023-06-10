@@ -1,12 +1,13 @@
 import React from "react";
 import { TextField } from "@mui/material";
-import "./Texto.css"
+import "./Texto.css";
 const Texto =(props) => {
     const {type = "text"} = props
 
-        const manejarCambio = (e) => {
-            props.actualizarValor(e.target.value)
-        };
+        const manejarCambio = (i) => {
+            props.actualizarValor(i.target.value)
+
+        }
 
     return(
         <div className={`campo campo-${type}`}>
@@ -15,9 +16,11 @@ const Texto =(props) => {
             style={{width: "100%"}}
             error={props.error}
             label={props.placeholder}
-            required={props.required}
+            required={props.required }
             value={props.valor}
+            helperText={props.helperText}
             onChange={manejarCambio}
+            onBlur={props.onBlur}
             type={type}
             />
         </div>

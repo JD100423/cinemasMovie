@@ -15,6 +15,9 @@ import { TextField, MenuItem } from "@mui/material";
           style={{width: "100%",
         display:"flex"}}
           id={inputId}
+          error={props.error}
+          helperText={props.helperText}
+          onBlur={props.onBlur}
           label={props.placeholder}
           required={props.required}
           select
