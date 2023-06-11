@@ -31,7 +31,7 @@ const FormCat = (props) => {
         setColor("")
         setCodigo("")
         setEnfoque({
-            nombre: true,
+            nombre: false,
             color: false,
             description: false,
             codigo: false,

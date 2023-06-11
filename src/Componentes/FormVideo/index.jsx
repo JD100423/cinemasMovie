@@ -87,7 +87,7 @@ const Formulario = (props) => {
     }
 
     const NewCat = () => {
-        navigate('/formularioCat')
+        navigate('/formulariocat')
     }
 
     return (

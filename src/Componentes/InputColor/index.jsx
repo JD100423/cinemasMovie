@@ -6,7 +6,11 @@ const InputColor = (props) => {
         props.actualizarValor(e.target.value)
     }
     return (
-        <Box component="div"style={{width: "100%", margin: "24px 0"}}> 
+        <Box component="div"
+        style={{
+            width: "100%", 
+            margin: "24px 0",
+                }}> 
         <TextField 
         style={{
             width: "100%",
@@ -16,7 +20,6 @@ const InputColor = (props) => {
             outlineColor: "#2A7AE4",
             lineHeight: "14px",
             boxSizing: "border-box",
-            //margin: "24px 0"
         }}
         required={props.required}
         placeholder={props.placeholder}

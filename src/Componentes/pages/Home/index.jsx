@@ -21,6 +21,11 @@ import { colorSecundario } from "../../UI/variables";
       color: #ffffff;
       border: none;
       border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    :hover{
+      transform: scale(0.9);
     }
   `;
   const HomeContainer = styled.div`
